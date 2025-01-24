@@ -32,7 +32,6 @@ function saveRandomWords(words) {
 
 // 初始化祝福语
 const randomWords = loadRandomWords();
-alert(randomWords);
 
 // 更新祝福语
 function updateRandomWords(newWord) {
