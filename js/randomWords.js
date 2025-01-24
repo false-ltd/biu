@@ -36,3 +36,12 @@ function removeRandomWord(word) {
 function getAllRandomWords() {
     return randomWords;
 }
+
+// 重置应用程序
+function resetApplication() {
+    localStorage.clear();
+    alert("设置项已重置！");
+}
+
+// 添加事件监听器到重置按钮
+document.querySelector(".setting-reset").addEventListener("click", resetApplication);

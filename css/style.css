@@ -373,3 +373,16 @@ body {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
+
+.menu .form-option--button button {
+    display: block;
+    width: 50%;
+    height: 30px;
+    font-size: 1rem;
+    font-family: "Russo One", arial, sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.06em;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    align-self: center;
+}
