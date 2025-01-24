@@ -1,9 +1,28 @@
 const randomWordsKey = "firework_random_words";
 
+// 从 URL 中获取参数
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 // 从 localStorage 加载祝福语
 function loadRandomWords() {
     const storedWords = localStorage.getItem(randomWordsKey);
-    return storedWords ? JSON.parse(storedWords) : ["春节快乐", "财源滚滚"];
+
+    const result = storedWords ? JSON.parse(storedWords) : ["春节快乐"];
+    // 处理 URL 参数 q
+    const q = getQueryParam("q");
+
+    if (q) {
+        const newWords = q.split(/[,，]/).map((word) => word.trim());
+        result = [];
+        newWords.forEach((word) => {
+            if (word && !result.includes(word)) {
+                result.push(word);
+            }
+        });
+    }
+    return result;
 }
 
 // 保存祝福语到 localStorage
@@ -13,6 +32,7 @@ function saveRandomWords(words) {
 
 // 初始化祝福语
 const randomWords = loadRandomWords();
+alert(randomWords);
 
 // 更新祝福语
 function updateRandomWords(newWord) {
@@ -20,15 +40,6 @@ function updateRandomWords(newWord) {
         randomWords.push(newWord);
         saveRandomWords(randomWords);
         alert("文字烟花添加成功！");
-    }
-}
-
-// 删除祝福语
-function removeRandomWord(word) {
-    const index = randomWords.indexOf(word);
-    if (index > -1) {
-        randomWords.splice(index, 1);
-        saveRandomWords(randomWords);
     }
 }
 
