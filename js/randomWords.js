@@ -3,7 +3,7 @@ const randomWordsKey = "firework_random_words";
 // 从 localStorage 加载祝福语
 function loadRandomWords() {
     const storedWords = localStorage.getItem(randomWordsKey);
-    return storedWords ? JSON.parse(storedWords) : ["春节快乐", "心想事成", "阖家欢乐", "财源滚滚"];
+    return storedWords ? JSON.parse(storedWords) : ["春节快乐", "财源滚滚"];
 }
 
 // 保存祝福语到 localStorage
