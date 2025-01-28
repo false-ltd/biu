@@ -77,6 +77,11 @@ const trailsStage = new Stage("trails-canvas");
 const mainStage = new Stage("main-canvas");
 const stages = [trailsStage, mainStage];
 
+// Ensure randomWords is defined
+if (typeof randomWords === "undefined") {
+    randomWords = [];
+}
+
 //随机文字烟花内容
 const wordDotsMap = {};
 randomWords.forEach((word) => {
@@ -1438,6 +1443,7 @@ function render(speed) {
     }
 
     // Remaining drawing on trails canvas will use 'lighten' blend mode
+
     trailsCtx.globalCompositeOperation = "lighten";
 
     // Draw stars
