@@ -7,9 +7,9 @@ function getQueryParam(param) {
 }
 // 从 localStorage 加载祝福语
 function loadRandomWords() {
-    const storedWords = localStorage.getItem(randomWordsKey);
+    let storedWords = localStorage.getItem(randomWordsKey);
 
-    let result = storedWords ? JSON.parse(storedWords) : ["新年快乐"];
+    let result = storedWords ? JSON.parse(storedWords) : ["春节快乐"];
     // 处理 URL 参数 q
     const q = getQueryParam("q");
 
@@ -31,7 +31,7 @@ function saveRandomWords(words) {
 }
 
 // 初始化祝福语
-const randomWords = loadRandomWords();
+let randomWords = loadRandomWords();
 
 // 更新祝福语
 function updateRandomWords(newWord) {
